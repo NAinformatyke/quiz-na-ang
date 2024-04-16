@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verb Patterns Game</title>
+    <style>
+        .dropzone {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .draggable {
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .incorrect {
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verb Patterns Game</h1>
+    <p>Ułóż poprawne zdania, używając odpowiednich czasowników i wzorców:</p>
+
+    <!-- Przykład 1 -->
+    <div class="example">
+        <p>1. She <span id="verb1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> to swim.</p>
+        <div id="drag1" class="draggable" draggable="true" ondragstart="drag(event)">is going</div>
+        <div id="drag2" class="draggable" draggable="true" ondragstart="drag(event)">went</div>
+        <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)">will study</div>
+    </div>
+
+    <!-- Poprawiony przykład 2 -->
+    <div class="example">
+        <p>2. They <span id="verb2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> a book last night.</p>
+        <div id="drag4" class="draggable" draggable="true" ondragstart="drag(event)">were reading</div>
+        <div id="drag5" class="draggable" draggable="true" ondragstart="drag(event)">read</div>
+        <div id="drag6" class="draggable" draggable="true" ondragstart="drag(event)">will read</div>
+    </div>
+
+    <!-- Przykład 3 -->
+    <div class="example">
+        <p>3. He <span id="verb3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> lunch at noon.</p>
+        <div id="drag7" class="draggable" draggable="true" ondragstart="drag(event)">ate</div>
+        <div id="drag8" class="draggable" draggable="true" ondragstart="drag(event)">eats</div>
+        <div id="drag9" class="draggable" draggable="true" ondragstart="drag(event)">will eat</div>
+    </div>
+
+    <!-- Przykład 4 -->
+    <div class="example">
+        <p>4. We <span id="verb4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> late on weekends.</p>
+        <div id="drag10" class="draggable" draggable="true" ondragstart="drag(event)">are sleeping</div>
+        <div id="drag11" class="draggable" draggable="true" ondragstart="drag(event)">slept</div>
+        <div id="drag12" class="draggable" draggable="true" ondragstart="drag(event)">will sleep</div>
+    </div>
+
+    <!-- Przykład 5 -->
+    <div class="example">
+        <p>5. They <span id="verb5" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> football every Saturday.</p>
+        <div id="drag13" class="draggable" draggable="true" ondragstart="drag(event)">are playing</div>
+        <div id="drag14" class="draggable" draggable="true" ondragstart="drag(event)">played</div>
+        <div id="drag15" class="draggable" draggable="true" ondragstart="drag(event)">will play</div>
+    </div>
+
+    <!-- Przykład 6 -->
+    <div class="example">
+        <p>6. She <span id="verb6" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> TV every evening.</p>
+        <div id="drag16" class="draggable" draggable="true" ondragstart="drag(event)">is watching</div>
+        <div id="drag17" class="draggable" draggable="true" ondragstart="drag(event)">watched</div>
+        <div id="drag18" class="draggable" draggable="true" ondragstart="drag(event)">will watch</div>
+    </div>
+
+    <!-- Przykład 7 -->
+    <div class="example">
+        <p>7. They <span id="verb7" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> to the cinema last weekend.</p>
+        <div id="drag19" class="draggable" draggable="true" ondragstart="drag(event)">are going</div>
+        <div id="drag20" class="draggable" draggable="true" ondragstart="drag(event)">went</div>
+        <div id="drag21" class="draggable" draggable="true" ondragstart="drag(event)">will go</div>
+    </div>
+
+    <!-- Przykład 8 -->
+    <div class="example">
+        <p>8. He <span id="verb8" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> a letter to his friend.</p>
+        <div id="drag22" class="draggable" draggable="true" ondragstart="drag(event)">is writing</div>
+        <div id="drag23" class="draggable" draggable="true" ondragstart="drag(event)">wrote</div>
+        <div id="drag24" class="draggable" draggable="true" ondragstart="drag(event)">will write</div>
+    </div>
+
+    <!-- Przykład 9 -->
+    <div class="example">
+        <p>9. They <span id="verb9" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> to work by car.</p>
+        <div id="drag25" class="draggable" draggable="true" ondragstart="drag(event)">are driving</div>
+        <div id="drag26" class="draggable" draggable="true" ondragstart="drag(event)">drove</div>
+        <div id="drag27" class="draggable" draggable="true" ondragstart="drag(event)">will drive</div>
+    </div>
+
+    <!-- Przykład 10 -->
+    <div class="example">
+        <p>10. She <span id="verb10" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></span> in the park every morning.</p>
+        <div id="drag28" class="draggable" draggable="true" ondragstart="drag(event)">is running</div>
+        <div id="drag29" class="draggable" draggable="true" ondragstart="drag(event)">ran</div>
+        <div id="drag30" class="draggable" draggable="true" ondragstart="drag(event)">will run</div>
+    </div>
+
+    <button onclick="checkAnswers()">Sprawdź odpowiedzi</button>
+
+    <p id="result"></p>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function checkAnswers() {
+            var correctAnswers = {
+                "verb1": "is going",
+                "verb2": "read",
+                "verb3": "ate",
+                "verb4": "will sleep",
+                "verb5": "play",
+                "verb6": "is watching",
+                "verb7": "went",
+                "verb8": "is writing",
+                "verb9": "drive",
+                "verb10": "runs"
+            };
+
+            var incorrectAnswers = 0;
+
+            // Sprawdzanie poprawności odpowiedzi
+            Object.keys(correctAnswers).forEach(function(key) {
+                var verb = document.getElementById(key).textContent.trim();
+                if (verb !== correctAnswers[key]) {
+                    document.getElementById(key).classList.add("incorrect");
+                    incorrectAnswers++;
+                }
+            });
+
+            // Wyświetlanie wyniku
+            var resultMessage = "";
+            if (incorrectAnswers === 0) {
+                resultMessage = "Gratulacje! Wszystkie odpowiedzi są poprawne!";
+            } else {
+                resultMessage = "Nie wszystkie odpowiedzi są poprawne. Spróbuj jeszcze raz.";
+            }
+            document.getElementById("result").textContent = resultMessage;
+        }
+    </script>
+</body>
+</html>
